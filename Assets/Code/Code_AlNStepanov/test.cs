@@ -1,5 +1,5 @@
 using System;
-class HelloWorld {
+class Stepanov_Alexey_Nicolaevich {
   static void Main() { 
     Console.WriteLine("Hello World");
   }
