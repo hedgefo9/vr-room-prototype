@@ -3,45 +3,62 @@ using System.Collections.Generic;
 using UnityEngine; 
  
 public class Floor : MonoBehaviour 
-{ 
+{
+[SerializeField] public bool br=false,bl=false,bt=false,bb=false;
     public GameObject wals; 
-     
-    private int[] sides ={1,-1,1,-1}; 
-    public float size_of_floor=0.5f,x_center=0.0f,y_center=0.0f,z_center=0.0f; 
+     public GameObject plate; 
+    private int[] sides ={1,-1}; 
+    public float size_of_floor=0.23f,x_center=0.0f,y_center=0.0f,z_center=0.0f; 
     private  int flag=0; 
     public GameObject[] walls = new GameObject[4]; 
+    public int num1=0,num2=0;
+    private Transform tf;
+     void Awake() {
+      tf=GetComponent<Transform>();
+        x_center=tf.position.x; 
+        y_center=tf.position.y; 
+        z_center=tf.position.z; 
+        size_of_floor=tf.lossyScale.x  /2;
+        num1=(int)x_center+5;
+        num2=(int)z_center+5;
+        
+    }
  
  
     void Start() 
     { 
-       Debug.Log("Start"); 
-       x_center=GetComponent<Transform>().position.x; 
-        y_center=GetComponent<Transform>().position.y; 
-        z_center=GetComponent<Transform>().position.z; 
- 
-        
-        
     } 
+
  
     // Update is called once per frame 
     void Update() 
     { 
        if(Input.GetKeyUp(KeyCode.Mouse1)&&flag==0){ 
      Debug.Log(flag); 
+     plate.GetComponent<Plane_creating_floor>().Get_number_of_floor(num1,num2);
+     br=plate.GetComponent<Plane_creating_floor>().br;
+     bl=plate.GetComponent<Plane_creating_floor>().bl;
+     bt=plate.GetComponent<Plane_creating_floor>().bt;
+     bb=plate.GetComponent<Plane_creating_floor>().bb;
         for(int t=0;t<2;++t){ 
+         if((t==0&&plate.GetComponent<Plane_creating_floor>().br)||(t==1&&plate.GetComponent<Plane_creating_floor>().bl)){
+            continue;
+            
+         }
+
+         
            walls[t]=Instantiate(wals,new Vector3(x_center+sides[t]*size_of_floor,y_center+size_of_floor,z_center),Quaternion.Euler(0,0,0)); 
-           
+         
+
         } 
         for(int t=0;t<2;++t){ 
+         if((t==0&&plate.GetComponent<Plane_creating_floor>().bt)||(t==1&&plate.GetComponent<Plane_creating_floor>().bb)){
+            continue;
+         }
            walls[2+t]= Instantiate(wals,new Vector3(x_center,y_center+size_of_floor,z_center+sides[t]*size_of_floor),Quaternion.Euler(0,90,0)); 
           
         } 
             flag++; 
-            walls[0].name="right_wall"; 
-            walls[1].name="left_wall"; 
-            walls[2].name="front_wall"; 
-            walls[3].name="back_wall"; 
- 
  
         } 
        }  
