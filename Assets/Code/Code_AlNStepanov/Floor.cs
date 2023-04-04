@@ -19,8 +19,8 @@ public class Floor : MonoBehaviour
         y_center=tf.position.y; 
         z_center=tf.position.z; 
         size_of_floor=tf.lossyScale.x  /2;
-        num1=(int)x_center+5;
-        num2=(int)z_center+5;
+        num1=(int)x_center+50;
+        num2=(int)z_center+50;
         
     }
  
@@ -31,7 +31,7 @@ public class Floor : MonoBehaviour
 
  
     // Update is called once per frame 
-    void Update() 
+    void LateUpdate() 
     { 
        if(Input.GetKeyUp(KeyCode.Mouse1)&&flag==0){ 
      Debug.Log(flag); 

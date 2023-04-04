@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class Plane_creating_floor : MonoBehaviour
 {
      public float[,] matrix_of_floor= new float[100,100];
@@ -17,16 +17,17 @@ public class Plane_creating_floor : MonoBehaviour
    }
     void Start()
     {
-        for(int y=0;y<10;y++){
-            for(int x=0;x<10;x++){
+       /* for(int y=0;y<100;y++){
+            for(int x=0;x<100;x++){
                 
-                
+                if(x<50||y%2==0){
                 matrix_of_floor[y,x]=1;
                 
-                Instantiate(floor,new Vector3(x+x_center-5,y_center,y+z_center-5),Quaternion.Euler(0,0,0)); 
+                Instantiate(floor,new Vector3(x+x_center-50,y_center,y+z_center-50),Quaternion.Euler(0,0,0)); 
                 Debug.Log(matrix_of_floor[y,x]);
+                }
             }
-        }
+        }*/
     }
 
     // Update is called once per frame
@@ -39,7 +40,7 @@ public class Plane_creating_floor : MonoBehaviour
         bl=false;
         bb=false;
         bt=false;
-          if(num1<9&&matrix_of_floor[num2,num1+1]==1){
+          if(num1<99&&matrix_of_floor[num2,num1+1]==1){
             br=true;
           }
           if(num1>0&&matrix_of_floor[num2,num1-1]==1){
@@ -50,11 +51,21 @@ public class Plane_creating_floor : MonoBehaviour
             bb=true;
           }
 
-          if(num2<9&&matrix_of_floor[num2+1,num1]==1){
+          if(num2<99&&matrix_of_floor[num2+1,num1]==1){
             bt=true;
           }
        
 
 
     }
+    public void Flor_creator(float x,float y,float z){
+  if(MathF.Abs(x+50)<100&&MathF.Abs(z+50)<100){
+    if(matrix_of_floor[(int)z+50,(int)x+50]==0){
+      Instantiate(floor,new Vector3(x+x_center,y_center,z+z_center),Quaternion.Euler(0,0,0));
+      matrix_of_floor[(int)z+50,(int)x+50]=1;
+    }
+  }
 }
+}
+
+
