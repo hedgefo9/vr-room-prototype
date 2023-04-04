@@ -58,11 +58,15 @@ public class Plane_creating_floor : MonoBehaviour
 
 
     }
-    public void Flor_creator(float x,float y,float z){
+    public void Flor_creator(float x,float y,float z, Collider colid ){
   if(MathF.Abs(x+50)<100&&MathF.Abs(z+50)<100){
     if(matrix_of_floor[(int)z+50,(int)x+50]==0){
       Instantiate(floor,new Vector3(x+x_center,y_center,z+z_center),Quaternion.Euler(0,0,0));
       matrix_of_floor[(int)z+50,(int)x+50]=1;
+    }
+    else{
+      Destroy(colid.gameObject);
+      matrix_of_floor[(int)z+50,(int)x+50]=0;
     }
   }
 }
