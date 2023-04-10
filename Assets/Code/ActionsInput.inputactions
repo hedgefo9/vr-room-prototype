@@ -11,7 +11,7 @@
                     "id": "d282c942-530f-4c5a-8704-5fa151e8d545",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -20,7 +20,7 @@
                     "id": "97b58a49-39d3-43f4-9656-49fe28c7e7bc",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -178,6 +178,54 @@
                 {
                     "name": "",
                     "id": "3fb51ad9-8828-4a96-b948-dbb6a99515ca",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "DragableObjects",
+            "id": "068a7500-935b-4c49-b7a4-169d6623786e",
+            "actions": [
+                {
+                    "name": "Drag",
+                    "type": "Button",
+                    "id": "e182233f-643b-4676-9d4e-0193ac964c41",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "27d2f90a-ea72-4fc8-9a53-0e4b483745f8",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1e296a99-4ed5-42d3-8140-f0b83ecdf033",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(pressPoint=0.001,behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b8f9fb5-42cf-456f-921d-e6e055387e67",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
