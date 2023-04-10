@@ -8,11 +8,8 @@ public class DragAndDropController : MonoBehaviour
 {
     public GameObject[] DragablesItems;
     public GameObject Camera;
-
-    public void Start()
-    {
-        Camera = GameObject.FindGameObjectWithTag("MainCamera");
-    }
+    public GameObject DragPoint;
+    public float lerpSpeed;
 
     public void OnDrag() 
     {
@@ -21,6 +18,7 @@ public class DragAndDropController : MonoBehaviour
         foreach (GameObject obj in DragablesItems)
         {
             obj.GetComponent<Dragable>().Drag = !obj.GetComponent<Dragable>().Drag;
+            DragPoint.transform.position = obj.transform.position;
         }
     }
 
@@ -30,12 +28,9 @@ public class DragAndDropController : MonoBehaviour
 
         foreach (GameObject obj in DragablesItems)
         {
-            Debug.Log((float)Math.Cos(Camera.transform.localEulerAngles.y));
             if (obj.GetComponent<Dragable>().Drag) {
-                Vector3 angles = obj.transform.eulerAngles;
-                obj.transform.RotateAround(Camera.transform.position, new Vector3(0, 1, 0), inputVector.x * (float)0.3);
-                obj.transform.RotateAround(Camera.transform.position, Vector3.left, inputVector.y * (float)0.3);
-                obj.transform.eulerAngles = angles;
+
+                obj.transform.position = Vector3.Lerp(obj.transform.position, DragPoint.transform.position, Time.deltaTime * lerpSpeed);
             }
         }
     }
