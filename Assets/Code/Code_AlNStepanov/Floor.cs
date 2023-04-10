@@ -13,8 +13,10 @@ public class Floor : MonoBehaviour
     public GameObject[] walls = new GameObject[4]; 
     public int num1=0,num2=0;
     private Transform tf;
+    private Renderer flor_render;
      void Awake() {
       tf=GetComponent<Transform>();
+      flor_render=GetComponent<Renderer>();
         x_center=tf.position.x; 
         y_center=tf.position.y; 
         z_center=tf.position.z; 
@@ -57,7 +59,8 @@ public class Floor : MonoBehaviour
          }
            walls[2+t]= Instantiate(wals,new Vector3(x_center,y_center+size_of_floor,z_center+sides[t]*size_of_floor),Quaternion.Euler(0,90,0)); 
           
-        } 
+        } if(gameObject.name=="Flor(Clone)"){
+         flor_render.material.color = new Color (1f, 0f, 1f, 1f);}
             flag++; 
  
         } 
