@@ -77,9 +77,10 @@ public class Plane_creating_floor : MonoBehaviour
       matrix_of_floor[(int)z+50,(int)x+50]=1;
     }
     else{
-      
+      if(colid.gameObject.name!="Plane"){
       Destroy(colid.gameObject);
       matrix_of_floor[(int)z+50,(int)x+50]=0;}
+    }
     
   }
 }

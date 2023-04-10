@@ -34,7 +34,9 @@ public class Floor : MonoBehaviour
  
     // Update is called once per frame 
     void LateUpdate() 
-    { 
+    { if(Input.GetKeyUp(KeyCode.G)){
+      flag=10;
+    }
        if(Input.GetKeyUp(KeyCode.Mouse1)&&flag==0){ 
      Debug.Log(flag); 
      plate.GetComponent<Plane_creating_floor>().Get_number_of_floor(num1,num2);
