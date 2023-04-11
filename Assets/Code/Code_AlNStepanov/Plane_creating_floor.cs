@@ -36,14 +36,11 @@ public class Plane_creating_floor : MonoBehaviour
         matrix_of_floor= new float[100,100];
       }
     }
-    // Update is called once per frame
-    void LateUpdate()
-    {
-         if(Input.GetKeyUp(KeyCode.Mouse1)){
+    
+    public void Clear_matrix(){
           wall_flag=true;
 
-         }
-    }
+      }
     public void Get_number_of_floor(int num1,int num2){
         br=false;
         bl=false;

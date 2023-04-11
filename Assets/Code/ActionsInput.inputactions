@@ -235,6 +235,85 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Floor_manager",
+            "id": "84c50cba-0bad-45df-8236-d28287f00af6",
+            "actions": [
+                {
+                    "name": "Build_wals",
+                    "type": "Button",
+                    "id": "32594655-01be-452a-8b89-cc2f1bd44ee9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Block_any_actions",
+                    "type": "Button",
+                    "id": "fb94bad6-4869-4939-afcc-2b6c5628a0c2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "beam_release",
+                    "type": "Button",
+                    "id": "d216d3b5-412f-4570-b15c-014a36fc7049",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7b510081-9873-49f0-af4d-78a122edf1f0",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Build_wals",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b8c8ac4-9542-43c0-957a-dfac4f500555",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Block_any_actions",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b20e6bf4-0e1a-4545-8a4a-5d159d1839d4",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Block_any_actions",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "85209cff-ae27-40ec-b71f-7549e9b95856",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "beam_release",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
