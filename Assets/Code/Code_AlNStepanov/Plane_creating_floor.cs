@@ -10,6 +10,7 @@ public class Plane_creating_floor : MonoBehaviour
     public GameObject floor;
     // Start is called before the first frame update
    private float x_center=0.0f,y_center=0.0f,z_center=0.0f;
+   private bool wall_flag=false;
    void Awake() {
         x_center=GetComponent<Transform>().position.x; 
         y_center=GetComponent<Transform>().position.y; 
@@ -29,12 +30,17 @@ public class Plane_creating_floor : MonoBehaviour
             }
         }*/
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update(){
+      if(wall_flag){
+        wall_flag=false;
+        matrix_of_floor= new float[100,100];
+      }
     }
+    
+    public void Clear_matrix(){
+          wall_flag=true;
+
+      }
     public void Get_number_of_floor(int num1,int num2){
         br=false;
         bl=false;
@@ -61,13 +67,18 @@ public class Plane_creating_floor : MonoBehaviour
     public void Flor_creator(float x,float y,float z, Collider colid ){
   if(MathF.Abs(x+50)<100&&MathF.Abs(z+50)<100){
     if(matrix_of_floor[(int)z+50,(int)x+50]==0){
+      if(colid.gameObject.name=="Flor(Clone)"){
+        Destroy(colid.gameObject);
+      }
       Instantiate(floor,new Vector3(x+x_center,y_center,z+z_center),Quaternion.Euler(0,0,0));
       matrix_of_floor[(int)z+50,(int)x+50]=1;
     }
     else{
+      if(colid.gameObject.name!="Plane"){
       Destroy(colid.gameObject);
-      matrix_of_floor[(int)z+50,(int)x+50]=0;
+      matrix_of_floor[(int)z+50,(int)x+50]=0;}
     }
+    
   }
 }
 }

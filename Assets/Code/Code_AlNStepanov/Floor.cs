@@ -1,7 +1,8 @@
 using System.Collections; 
 using System.Collections.Generic; 
 using UnityEngine; 
- 
+using System;
+using UnityEngine.InputSystem;
 public class Floor : MonoBehaviour 
 {
 [SerializeField] public bool br=false,bl=false,bt=false,bb=false;
@@ -9,12 +10,14 @@ public class Floor : MonoBehaviour
      public GameObject plate; 
     private int[] sides ={1,-1}; 
     public float size_of_floor=0.23f,x_center=0.0f,y_center=0.0f,z_center=0.0f; 
-    private  int flag=0; 
+    private  int flag=0;
     public GameObject[] walls = new GameObject[4]; 
     public int num1=0,num2=0;
     private Transform tf;
+    private Renderer flor_render;
      void Awake() {
       tf=GetComponent<Transform>();
+      flor_render=GetComponent<Renderer>();
         x_center=tf.position.x; 
         y_center=tf.position.y; 
         z_center=tf.position.z; 
@@ -31,9 +34,11 @@ public class Floor : MonoBehaviour
 
  
     // Update is called once per frame 
-    void LateUpdate() 
-    { 
-       if(Input.GetKeyUp(KeyCode.Mouse1)&&flag==0){ 
+   public void Blockirator(){
+         flag=10;
+   }
+   public void Walls_builder(){
+       if(flag==0){ 
      Debug.Log(flag); 
      plate.GetComponent<Plane_creating_floor>().Get_number_of_floor(num1,num2);
      br=plate.GetComponent<Plane_creating_floor>().br;
@@ -57,9 +62,14 @@ public class Floor : MonoBehaviour
          }
            walls[2+t]= Instantiate(wals,new Vector3(x_center,y_center+size_of_floor,z_center+sides[t]*size_of_floor),Quaternion.Euler(0,90,0)); 
           
-        } 
+        } if(gameObject.name=="Flor(Clone)"){
+         flor_render.material.color = new Color (1f, 0f, 1f, 1f);}
+         
             flag++; 
  
-        } 
-       }  
+        
+
+       }
+
+   }
     }
