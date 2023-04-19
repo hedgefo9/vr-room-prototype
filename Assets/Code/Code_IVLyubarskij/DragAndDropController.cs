@@ -6,31 +6,48 @@ using UnityEngine.InputSystem;
 
 public class DragAndDropController : MonoBehaviour
 {
-    public GameObject[] DragablesItems;
+    public LineRenderer lineRenderer;
     public GameObject Camera;
     public GameObject DragPoint;
+    private GameObject dragObject;
     public float lerpSpeed;
+    Ray controllerRay;
+    RaycastHit controllerRayHit;
+
+    public void Awake()
+    {
+        dragObject = new GameObject();
+    }
 
     public void OnDrag() 
     {
-        DragablesItems = GameObject.FindGameObjectsWithTag("Dragable");
-
-        foreach (GameObject obj in DragablesItems)
+        if (Physics.Raycast(controllerRay, out controllerRayHit))
         {
-            obj.GetComponent<Dragable>().Drag = !obj.GetComponent<Dragable>().Drag;
-            DragPoint.transform.position = obj.transform.position;
+            dragObject = controllerRayHit.collider.gameObject;
+            if (dragObject.GetComponent<Dragable>() != null)
+            {
+                dragObject.GetComponent<Dragable>().Drag = !dragObject.GetComponent<Dragable>().Drag;
+                DragPoint.transform.position = dragObject.transform.position;
+            }
         }
+
     }
 
     public void OnLook(InputValue input)
     {
-        Vector2 inputVector = input.Get<Vector2>();
+        lineRenderer.SetPosition(0, Camera.transform.position);
+        lineRenderer.SetPosition(1, Camera.transform.position + Camera.transform.forward*5);
 
-        foreach (GameObject obj in DragablesItems)
+        controllerRay.origin = Camera.transform.position;
+        controllerRay.direction = Camera.transform.forward;
+
+        Debug.DrawRay(Camera.transform.position, Camera.transform.forward*100, Color.red);
+
+        if (dragObject.GetComponent<Dragable>() != null)
         {
-            if (obj.GetComponent<Dragable>().Drag) {
-
-                obj.transform.position = Vector3.Lerp(obj.transform.position, DragPoint.transform.position, Time.deltaTime * lerpSpeed);
+            if (dragObject.GetComponent<Dragable>().Drag)
+            {
+                dragObject.transform.position = Vector3.Lerp(dragObject.transform.position, DragPoint.transform.position, Time.deltaTime * lerpSpeed);
             }
         }
     }
