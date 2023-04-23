@@ -6,23 +6,11 @@ public class FurnitureMenuController : MonoBehaviour
 {
     public GameObject furnitureMenu;
     public GameObject objectToBeSpawned;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     public void OnClick()
     {
         GameObject duplicate = Instantiate(objectToBeSpawned);
-        duplicate.transform.position = new Vector3(Camera.main.transform.position.x, 0, Camera.main.transform.position.z + 4);
+        duplicate.transform.position = new Vector3(Camera.main.transform.position.x, 0, Camera.main.transform.position.z + 2);
     }
 
     public void OnBackButtonClick(GameObject objectsMenu)

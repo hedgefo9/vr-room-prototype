@@ -32,14 +32,8 @@ public class DragAndDropController : MonoBehaviour
 
     }
 
-    public void OnLook(InputValue input)
+    public void Update()
     {
-
-        controllerRay.origin = Camera.transform.position;
-        controllerRay.direction = Camera.transform.forward;
-
-        Debug.DrawRay(Camera.transform.position, Camera.transform.forward*100, Color.red);
-
         if (dragObject.GetComponent<Dragable>() != null)
         {
             if (dragObject.GetComponent<Dragable>().Drag)
@@ -49,4 +43,41 @@ public class DragAndDropController : MonoBehaviour
         }
     }
 
+    public void OnLook(InputValue input)
+    {
+
+        controllerRay.origin = Camera.transform.position;
+        controllerRay.direction = Camera.transform.forward;
+
+        Debug.DrawRay(Camera.transform.position, Camera.transform.forward*100, Color.red);
+
+        
+    }
+
+    public void OnPull(InputValue input)
+    {
+
+        float inputFloat = input.Get<float>() * (float)0.001;
+
+        if (dragObject.GetComponent<Dragable>() != null)
+        {
+            if (dragObject.GetComponent<Dragable>().Drag)
+            {
+                DragPoint.transform.position += Camera.transform.forward * inputFloat;
+            }
+        }
+
+    }
+
+    public void OnRotate(InputValue input)
+    {
+        float inputFloat = input.Get<float>();
+        if (dragObject.GetComponent<Dragable>() != null)
+        {
+            if (dragObject.GetComponent<Dragable>().Drag)
+            {
+                dragObject.GetComponent<Rotate>().speed = inputFloat;
+            }
+        }
+    }
 }

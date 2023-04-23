@@ -5,6 +5,8 @@ using UnityEngine;
 public class MenusController : MonoBehaviour
 {
     public GameObject menus;
+    public GameObject FloorController;
+    public GameObject DragAndDropController;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +19,5 @@ public class MenusController : MonoBehaviour
         
     }
 
-    void OnOpenCloseMenu()
-    {
-        menus.gameObject.SetActive(!menus.gameObject.activeSelf);
-    }
+    
 }
