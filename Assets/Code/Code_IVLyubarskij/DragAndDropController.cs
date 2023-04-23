@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 
 public class DragAndDropController : MonoBehaviour
 {
-    public LineRenderer lineRenderer;
     public GameObject Camera;
     public GameObject DragPoint;
     private GameObject dragObject;
@@ -35,8 +34,6 @@ public class DragAndDropController : MonoBehaviour
 
     public void OnLook(InputValue input)
     {
-        lineRenderer.SetPosition(0, Camera.transform.position);
-        lineRenderer.SetPosition(1, Camera.transform.position + Camera.transform.forward*5);
 
         controllerRay.origin = Camera.transform.position;
         controllerRay.direction = Camera.transform.forward;

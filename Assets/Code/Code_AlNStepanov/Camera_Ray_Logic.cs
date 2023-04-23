@@ -16,13 +16,12 @@ public class Camera_Ray_Logic : MonoBehaviour
     
 
     void Update(){
-        
-         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-         //ray = Camera.main.ScreenPointToRay(Ray_start_position);
-        Debug.DrawRay(ray.origin,   ray.direction * 50,Color.blue,0f,true);
 
-        
-        
+        ray.origin = camera_w.transform.position;
+        ray.direction = camera_w.transform.forward;
+
+
+
     }
     public void Blockirovochka(){
        unblocking_button=false;

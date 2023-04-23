@@ -7,6 +7,10 @@ public class PlayerControls : MonoBehaviour
 {
     public float sensetivity = 0.3f;
     public GameObject Camera;
+    public GameObject FloorController;
+    public GameObject DragAndDropController;
+    public LineRenderer lineRenderer;
+    bool active = true;
     public void Start()
     {
         Camera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -15,6 +19,9 @@ public class PlayerControls : MonoBehaviour
 
     public void OnLook(InputValue input)
     {
+        lineRenderer.SetPosition(0, Camera.transform.position);
+        lineRenderer.SetPosition(1, Camera.transform.position + Camera.transform.forward * 5);
+
         Cursor.visible = false;
         Vector2 inputVector = input.Get<Vector2>();
 
@@ -24,4 +31,12 @@ public class PlayerControls : MonoBehaviour
         }
         
     }
+
+    public void OnChangeMode()
+    {
+        active = !active;
+        FloorController.SetActive(active);
+        DragAndDropController.SetActive(active);
+    }
+
 }
