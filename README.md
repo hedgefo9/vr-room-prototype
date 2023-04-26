@@ -52,7 +52,9 @@ MVP проектируется на базе MVC (Model View Controller) арх�
 
 ![image](https://user-images.githubusercontent.com/113284506/232177892-b261d85e-49b2-4074-8aba-f3f9f5d6dc08.png)
 
-![image](https://user-images.githubusercontent.com/113284506/232178091-e4baaf83-90b1-417b-9606-49e677037c52.png)
+### Архитектура папок
+
+![image](https://user-images.githubusercontent.com/113284506/222925566-cf4e3ac8-9570-40a7-a30a-4619838f9f21.png)
 
 ### Диаграмма контекста
 
@@ -62,15 +64,13 @@ MVP проектируется на базе MVC (Model View Controller) арх�
 
 ![image](https://user-images.githubusercontent.com/113284506/233986733-a28e7dc3-8ccb-4675-bbb0-a4e81c0b5d46.png)
 
-![image](https://user-images.githubusercontent.com/113284506/222925566-cf4e3ac8-9570-40a7-a30a-4619838f9f21.png)
-
 ### Диаграмма Use Case
 
 ![image](https://user-images.githubusercontent.com/113284506/234593633-1d581edd-06ac-453b-b0d9-03d4bb6a8119.png)
 
 ### Диаграмма классов
 
-![image](https://user-images.githubusercontent.com/113284506/234593696-7b8af788-0afc-4ace-bde1-9ab01c76d071.png)
+![image](https://user-images.githubusercontent.com/113284506/234597938-7e18c4cb-d057-4c4e-ae0e-646ec85fa0c1.png)
 
 ## 4. Стек разработки
 
