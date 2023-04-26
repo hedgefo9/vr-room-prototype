@@ -64,8 +64,13 @@ MVP проектируется на базе MVC (Model View Controller) арх�
 
 ![image](https://user-images.githubusercontent.com/113284506/222925566-cf4e3ac8-9570-40a7-a30a-4619838f9f21.png)
 
+### Диаграмма Use Case
 
+![image](https://user-images.githubusercontent.com/113284506/234593633-1d581edd-06ac-453b-b0d9-03d4bb6a8119.png)
 
+### Диаграмма классов
+
+![image](https://user-images.githubusercontent.com/113284506/234593696-7b8af788-0afc-4ace-bde1-9ab01c76d071.png)
 
 ## 4. Стек разработки
 
